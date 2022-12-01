@@ -60,7 +60,7 @@ async function executeCommand(log) {
 						let nft = createNFT(td);
 						if (td.from === NULL_ADDRESS) {
 							socket.emit("new-nft", nft);
-							console.log("NEW NFT MINTED", log.logId);
+							console.log("NEW NFT MINTED", log.token_id);
 						} else {
 							const nftExist = await NFT.findOne({
 								contract_address: nft.contract_address,
@@ -70,7 +70,7 @@ async function executeCommand(log) {
 							if (nftExist) {
 								nft = nftExist;
 							}
-							console.log("NFT TRANSFER", log.logId);
+							console.log("NFT TRANSFER", nft.token_id);
 						}
 						await nft.save();
 						await Owner.updateOne(
@@ -91,20 +91,20 @@ async function executeCommand(log) {
 							{ status: "finished" }
 						);
 
-						// // Create Event
-						// await Events.create({
-						// 	method: td.input.slice(0, 10),
-						// 	input: td.input,
-						// 	from: td.from,
-						// 	to: td.to,
-						// 	nft_id: nft._id,
-						// 	contract_address: nft.contract_address,
-						// 	token_id: nft.token_id,
-						// 	chain_id: td.chainId,
-						// 	transaction_hash: log.transactionHash,
-						// 	log_id: log._id,
-						// 	timestamp: log.timestamp,
-						// });
+						// Create Event
+						await Events.create({
+							method: "0x0",
+							input: "0x0",
+							from: td.from,
+							to: td.to,
+							nft_id: nft._id,
+							contract_address: nft.contract_address,
+							token_id: nft.token_id,
+							chain_id: td.chainId,
+							transaction_hash: log.transactionHash,
+							log_id: log._id,
+							timestamp: log.timestamp,
+						});
 
 						resolve(true);
 					} catch (error) {

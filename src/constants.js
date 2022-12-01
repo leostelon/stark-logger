@@ -15,38 +15,6 @@ const IPFS_REGEX = /^ipfs:\/\//gm;
 const NULL_ADDRESS = "0x0";
 
 const CHAINS_CONFIG = {
-	GOERLI: {
-		chainId: "0x5",
-		chainName: "Goerli",
-		nativeCurrency: { name: "Goerli ETH", symbol: "GETH", decimals: 18 },
-		websocketRpcUrl:
-			"wss://goerli.infura.io/ws/v3/5684cb76b31641bfb9109209e457233f",
-		blockExplorerUrls: ["https://goerli.etherscan.io"],
-	},
-	ETHEREUM: {
-		chainId: "0x1",
-		chainName: "Ethereum",
-		nativeCurrency: { name: "ETH", symbol: "ETH", decimals: 18 },
-		websocketRpcUrl:
-			"wss://mainnet.infura.io/ws/v3/5684cb76b31641bfb9109209e457233f",
-		blockExplorerUrls: ["https://etherscan.io"],
-	},
-	POLYGON: {
-		chainId: "137",
-		chainName: "Polygon",
-		nativeCurrency: { name: "Matic", symbol: "MATIC", decimals: 18 },
-		websocketRpcUrl:
-			"wss://polygon-mainnet.g.alchemy.com/v2/gH_ctmy9n5INO41To_KPjGMXXM3MSN5P",
-		blockExplorerUrls: ["https://polygonscan.com/"],
-	},
-	MUMBAI: {
-		chainId: "80001",
-		chainName: "Mumbai",
-		nativeCurrency: { name: "Matic", symbol: "MATIC", decimals: 18 },
-		websocketRpcUrl:
-			"wss://polygon-mumbai.g.alchemy.com/v2/jGTlLP4Sa_TtTr_PAKM2E7tVQ87Y4gHX",
-		blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
-	},
 	STARK: {
 		chainId: "80001",
 		chainName: "Mumbai",

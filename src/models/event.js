@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const validator = require("validator");
+const { validateAndParseAddress } = require("starknet");
 
 const EventsSchema = new mongoose.Schema(
 	{
@@ -17,7 +17,7 @@ const EventsSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 			validate(value) {
-				if (!validator.isEthereumAddress(value.toString())) {
+				if (!validateAndParseAddress(value.toString())) {
 					throw new Error("Invalid nft owner address");
 				}
 			},
@@ -26,7 +26,7 @@ const EventsSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 			validate(value) {
-				if (!validator.isEthereumAddress(value.toString())) {
+				if (!validateAndParseAddress(value.toString())) {
 					throw new Error("Invalid nft owner address");
 				}
 			},
@@ -46,7 +46,7 @@ const EventsSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 			validate(value) {
-				if (!validator.isEthereumAddress(value.toString())) {
+				if (!validateAndParseAddress(value.toString())) {
 					throw new Error("Invalid nft contract address");
 				}
 			},
