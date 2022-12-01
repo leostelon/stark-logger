@@ -28,6 +28,13 @@
 
     curl --location -g --request GET '{{base_url}}/api/analytics?contract_address=0x03090623ea32d932ca1236595076b00702e7d860696faf300ca9eb13bfe0a78c'
    [TRY IT](http://142.93.219.224:3020/api/analytics?contract_address=0x03090623ea32d932ca1236595076b00702e7d860696faf300ca9eb13bfe0a78c)
+   
+| Use Cases⚡ |
+| :-------------- |
+
+ 1. Can be used in Explorers
+ 2. Integration with NFT Marketplace
+ 3. Can be used in In-Games which uses NFT
 
 | How it works🤔 |
 | :-------------- |
@@ -41,3 +48,22 @@
  - We index all these documents.
 
 **⚠️🚨Server running on single thread CPU, so things might be slow🚨⚠️** 
+
+**Steps to run**
+
+ 1. Install Node.js v16.13.0
+ 2. Install MongoDB  "version": "4.4.1"
+ 3. Clone this repo
+ 4. Create a folder named 'envconfig' in root directory
+ 5. Add a file .env with the below contents
+ **PORT=3005
+ALLOWED_DOMAINS  =  "http://localhost:3001 http://localhost:3000 http://192.168.18.4:3000"
+MONGODB_URL=mongodb://localhost:27017/starknet
+JWT_SECRET=secret
+AWS_ACCESS_KEY_ID=--AWS ACCESS Key--
+AWS_SECRET_ACCESS_KEY=--Bucket Access Key--
+AWS_BUCKET=--Bucket Name--
+ADMIN_PASS=adminpassword123
+CHAIN=STARK** 
+6. Install all the package using 'npm i'
+7. Run the program by 'npm run dev'
