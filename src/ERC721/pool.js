@@ -29,8 +29,8 @@ const commandProcessorsPool = GenericPool.createPool(
 	},
 	{
 		testOnBorrow: true,
-		min: 2, // Depending on your load, set a MINIMUM number of processes that should always be available in the pool
-		max: 2, // Depending on your load, set a MAXIMUM number of processes that should always be available in the pool
+		min: 1, // Depending on your load, set a MINIMUM number of processes that should always be available in the pool
+		max: 1, // Depending on your load, set a MAXIMUM number of processes that should always be available in the pool
 	}
 );
 

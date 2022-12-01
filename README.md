@@ -23,9 +23,11 @@
 
     curl --location -g --request GET '{{base_url}}/api/nfts?limit=10&chain_id=8080&query=&skip=0&owner=0x320CC5B64B609703cB3Da5c7744E0991FD6C0675'
     
+[TRY IT](http://142.93.219.224:3020/api/nfts?limit=10&chain_id=&query=&skip=0&owner=)
 ***ANALYTICS API***
 
-    curl --location -g --request GET '{{base_url}}/api/analytics?limit=10&chain_id=8080&query=&skip=0&owner=0x320CC5B64B609703cB3Da5c7744E0991FD6C0675'
+    curl --location -g --request GET '{{base_url}}/api/analytics?contract_address=0x03090623ea32d932ca1236595076b00702e7d860696faf300ca9eb13bfe0a78c'
+   [TRY IT](http://142.93.219.224:3020/api/analytics?contract_address=0x03090623ea32d932ca1236595076b00702e7d860696faf300ca9eb13bfe0a78c)
 
 | How it works🤔 |
 | :-------------- |
