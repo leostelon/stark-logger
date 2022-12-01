@@ -9,7 +9,7 @@ const ERC721_EVENT_KEY =
 
 // GLobal Variables
 let currentBlock = 0;
-let indexingBlock = 440571;
+let indexingBlock = process.env.INDEXING_BLOCK;
 
 const chain = CHAINS_CONFIG[process.env.CHAIN];
 const rpcProvider = new RpcProvider({
@@ -88,31 +88,3 @@ function createLog(event, tx) {
 }
 
 module.exports = { Listener };
-
-// const events = await provider.getEvents({
-// 	chunk_size: 1,
-// 	from_block: "latest",
-// 	to_block: "latest",
-// 	keys: [
-// 		"0x99cd8bde557814842a3121e8ddfd433a539b8c9f14bf31ebf108d12e6196e9",
-// 	],
-// });
-// const response = await axios({
-// 	method: "post",
-// 	url: chain.websocketRpcUrl,
-// 	headers: { "Content-Type": "application/json" },
-// 	data: {
-// 		jsonrpc: "2.0",
-// 		method: "starknet_getEvents",
-// 		params: [
-// 			{
-// 				chunk_size: 1,
-// 				keys: [
-// 					"0x99cd8bde557814842a3121e8ddfd433a539b8c9f14bf31ebf108d12e6196e9",
-// 				],
-// 			},
-// 		],
-// 	},
-// });
-// console.log(response.data);
-// console.log(events);
