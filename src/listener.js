@@ -44,15 +44,19 @@ class Listener {
 
 					let logs721 = [];
 					for await (let tx of txs.transactions) {
-						const receipt = await rpcProvider.getTransactionReceipt(
-							tx.transaction_hash
-						);
-						for await (let event of receipt.events) {
-							if (event.keys.includes(ERC721_EVENT_KEY)) {
-								const log = createLog(event, tx);
-								await log.save();
-								logs721.push(log);
+						try {
+							const receipt = await rpcProvider.getTransactionReceipt(
+								tx.transaction_hash
+							);
+							for await (let event of receipt.events) {
+								if (event.keys.includes(ERC721_EVENT_KEY)) {
+									const log = createLog(event, tx);
+									await log.save();
+									logs721.push(log);
+								}
 							}
+						} catch (e) {
+							console.log(e);
 						}
 					}
 
